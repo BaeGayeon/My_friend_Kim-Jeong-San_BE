@@ -16,5 +16,13 @@ router.get('/:userId/register', registerController.getProfile);
 
 router.post('/login', loginController.getKakaoUser);
 
+router.get('/userlist', loginController.getUserList);
+
+router.post('/message', loginController.sendMessage);
+
+router.get('/getMyKakao', loginController.getMyList);
+
+router.post('/insertFriend', loginController.insertFriend);
+
 
 module.exports = router;

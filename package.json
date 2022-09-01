@@ -1,7 +1,7 @@
 {
   "name": "kimjeongsan",
   "version": "1.0.0",
-  "description": "",
+  "description": ".env 파일은 만들어서 사용할",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon ./app.js",
@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.27.2",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "express-session": "^1.17.3",
@@ -17,6 +18,7 @@
     "mysql2": "^2.3.3",
     "nodemon": "^2.0.19",
     "pm2": "^5.2.0",
+    "qs": "^6.11.0",
     "sequelize": "^6.21.3",
     "sequelize-cli": "^6.4.1"
   },
@@ -31,5 +33,13 @@
     "multer": "^1.4.5-lts.1",
     "prettier": "^2.7.1",
     "winston": "^3.8.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sh3866/My_friend_Kim-Jeong-San_BE.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sh3866/My_friend_Kim-Jeong-San_BE/issues"
+  },
+  "homepage": "https://github.com/sh3866/My_friend_Kim-Jeong-San_BE#readme"
 }

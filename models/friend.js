@@ -1,33 +1,32 @@
-const { INTEGER } = require("sequelize");
 const Sequelize = require("sequelize");
-
-module.exports = class Payemnt extends Sequelize.Model {
+const { sequelize, User, Friend } = require("./index");
+module.exports = class Friend extends Sequelize.Model {
     static init(sequelize) {
         return super.init(
             {
-                amount: {
-                    type: INTEGER,
+                name: {
+                    type: Sequelize.STRING(20),
                     allowNull: false,
                 },
-                date: {
-                    type: Sequelize.DATEONLY,
+                friendUserId: {
+                    type: Sequelize.INTEGER,
                     allowNull: true,
                 },
-                payerId: {
-                    type: Sequelize.STRING(300),
-                    allowNull: false,
+                profilePhoto: {
+                    type: Sequelize.STRING(200),
+                    allowNull: true,
                 },
-                group: {
+                accounts: {
                     type: Sequelize.JSON,
                     allowNull: true,
                 },
             },
             {
                 sequelize,
-                timestamps: true, // create at 에 자동 설정
+                timestamps: true,
                 underscored: false,
-                modelName: "Payment",
-                tableName: "payments",
+                modelName: "Friend",
+                tableName: "friends",
                 paranoid: true,
                 charset: "utf8mb4",
                 collate: "utf8mb4_general_ci",
@@ -35,6 +34,7 @@ module.exports = class Payemnt extends Sequelize.Model {
         );
     }
     static associate(db) {
-        db.Payment.belongsTo(db.Room);
+        db.User.hasMany(db.Friend);
+        db.Friend.belongsTo(db.User);
     }
 };
